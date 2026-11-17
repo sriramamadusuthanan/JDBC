@@ -22,6 +22,13 @@ public class DB_Connection {
 		 //executeQuery for select
 		 statObj.executeUpdate("insert into emp(ename,job,salary) value(\"sri\",\"developer\",1000);");
 		 System.out.println("employee added");
+		 
+		 // add the data from a dynamic source not a fixed qurey
+		 String name = "ajay";
+		 int sal =2000;
+		 String job="hr";
+		 String query="insert into emp(ename,job,salary) value('" + name+"','" + job+"',"+sal +");";
+		 statObj.executeUpdate(query);
 	}
 
 }

@@ -29,6 +29,17 @@ public class DB_Connection {
 		 String job="hr";
 		 String query="insert into emp(ename,job,salary) value('" + name+"','" + job+"',"+sal +");";
 		 statObj.executeUpdate(query);
+		 
+		 // using preparestatement 
+		 //simple instead of statement we are using prepare statment to avoid query mistake when the qury is too long
+		 PreparedStatement ps = conobj.prepareStatement("insert into emp(ename,job,salary) value(?,?,?)");
+		 ps.setInt(3, 5000);
+		 ps.setString(1, "murugan");
+		 ps.setString(2,"electrical eng");
+		 
+		 //same excute like statement
+		 ps.executeUpdate();
+		 
 	}
 
 }
